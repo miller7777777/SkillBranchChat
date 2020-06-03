@@ -26,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new MessageController();
         controller.setIncomingLayout(R.layout.message);
-        controller.setOutgoingLayout(R.layout.message);
+        controller.setOutgoingLayout(R.layout.outgoing_message);
         controller.setMessageTextId(R.id.messageText);
         controller.setUserNameId(R.id.userName);
         controller.setMessageTimeId(R.id.messageDate);
         controller.appendTo(chatWindow, this);
 
         controller.addMessage(
-                new MessageController.Message("Всем здрасте", "SkillBox", true)
+                new MessageController.Message("Всем здрасте, вас приветствует Скиллбокс", "SkillBox", false)
         );
 
         sendButton.setOnClickListener(new View.OnClickListener() {

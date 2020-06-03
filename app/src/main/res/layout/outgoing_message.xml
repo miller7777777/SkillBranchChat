@@ -9,12 +9,12 @@
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/incoming"
-        tools:srcCompat="@drawable/incoming" />
+        app:srcCompat="@drawable/outgoing"
+        tools:srcCompat="@drawable/outgoing" />
 
     <TextView
         android:id="@+id/messageText"
@@ -22,15 +22,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/orange_background"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/purple_background"
         android:paddingLeft="10dp"
         android:paddingTop="4dp"
         android:paddingRight="10dp"
         android:paddingBottom="4dp"
         android:text="Примерный текст очень длинного сообщения, которое не влезает на одну строчку, нужен, чтобы потестировать интерфейс и насколько грамотно мы его сделали "
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <TextView
@@ -40,7 +41,7 @@
         android:layout_marginTop="16dp"
         android:text="Васян"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/messageText"
+        app:layout_constraintEnd_toEndOf="@+id/messageText"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -51,6 +52,6 @@
         android:layout_marginBottom="8dp"
         android:text="June 9 20:40"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/messageText"
+        app:layout_constraintStart_toStartOf="@+id/messageText"
         app:layout_constraintTop_toBottomOf="@+id/messageText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
