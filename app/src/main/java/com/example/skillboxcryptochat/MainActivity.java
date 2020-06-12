@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.function.Consumer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText userInput;
     RecyclerView chatWindow;
     MessageController controller;
+    Server server;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +50,21 @@ public class MainActivity extends AppCompatActivity {
                 userInput.setText("");
             }
         });
+
+        server = new Server(new Consumer<Pair<String, String>>(){
+
+            @Override
+            public void accept(final Pair<String, String> p) { // имя, сообщение
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        controller.addMessage(
+                                new MessageController.Message(p.second, p.first, false));
+                    }
+                });
+
+            }
+        });
+        server.connect();
     }
 }
